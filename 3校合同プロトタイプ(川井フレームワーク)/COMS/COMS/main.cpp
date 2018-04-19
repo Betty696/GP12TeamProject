@@ -297,9 +297,9 @@ HRESULT Init(HINSTANCE hInstance, HWND hWnd, BOOL bWindow)
 // 終了処理
 void Uninit(void)
 {
-//#ifdef _DEBUG
-//	UninitDBD();
-//#endif
+#ifdef _DEBUG
+	UninitDBD();
+#endif
 
 // デバイスオブジェクトの開放
 	SAFE_RELEASE(g_pD3DDevice);
@@ -308,7 +308,7 @@ void Uninit(void)
 	SAFE_RELEASE(g_pD3D);
 
 	// 入力の終了処理
-	//UninitInput();
+	UninitInput();
 
 }
 
@@ -319,17 +319,21 @@ void Update(void)
 	// 入力の更新処理
 	UpdateInput();
 
+
 	switch (Mode)
 	{
 	case MODE_TITLE:
+		UpdateTitle();
 		break;
 	case MODE_GAME:
-
+		UpdateGame();
 		break;
 	case MODE_RESULT:
+		UpdateResult();
 		break;
 	}
 	
+	UpdateFade();
 }
 
 //=============================================================================
@@ -345,16 +349,17 @@ void Draw(void)
 		switch (Mode)
 		{
 		case MODE_TITLE:
-
+			DrawTitle();
 			break;
 		case MODE_GAME:
-
+			DrawGame();
 			break;
 		case MODE_RESULT:
-
+			DrawResult();
 			break;
 		}
 
+		DrawFade();
 
 #ifdef _DEBUG
 		// デバッグデータ表示
@@ -378,14 +383,20 @@ void SetMode(MODE mode, int oldMode)
 
 	switch(mode)
 	{
-		//=======================================
-		// タイトル画面
 		/*新しいモードに切り替えるとき、必要ない物だけをリリース処理する*/
 		/*また、切り替えた時点で使いまわすものはリリース処理せずにそのまま*/
-	case MODE_TITLE:
-		//ゲーム画面の終了
-		UninitGame(mode);
 
+		//=======================================
+		// タイトル画面
+	case MODE_TITLE:
+		if (oldMode == MODE_GAME)
+		{// ゲーム画面の終了
+			UninitGame(mode);
+		}
+		else
+		{// リザルト画面の終了
+			UninitResult(mode);
+		}
 
 		// タイトル画面の初期化
 		InitTitle(oldMode);
@@ -393,18 +404,30 @@ void SetMode(MODE mode, int oldMode)
 		//=======================================
 		// ゲーム画面
 	case MODE_GAME:
-		//タイトル画面の終了
-		UninitTitle(mode);
-		//ゲーム画面の初期化
+		if (oldMode == MODE_TITLE)
+		{// タイトル画面の終了
+			UninitTitle(mode);
+		}
+		else
+		{// リザルト画面の終了
+			UninitResult(mode);
+		}
+		// ゲーム画面の初期化
 		InitGame(oldMode);
-
 		break;
 		//=======================================
 		// リザルト画面
 	case MODE_RESULT:
-
-
-
+		if (oldMode == MODE_TITLE)
+		{// タイトル画面の終了
+			UninitTitle(mode);
+		}
+		else
+		{// ゲーム画面の終了
+			UninitGame(mode);
+		}
+		// リザルト画面の初期化
+		InitResult(oldMode);
 		break;
 
 

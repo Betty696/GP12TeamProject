@@ -7,6 +7,10 @@
 #include "main.h"
 #include "result.h"
 
+#include "input.h"
+#include "fade.h"
+
+#include "result BG.h"
 //=============================================================================
 // マクロ定義
 
@@ -26,6 +30,8 @@ void InitResult(int oldMode)
 		// 初めての初期化
 		/*何も初期化されていあないと想定して、リザルト画面内で使うものを全部初期化*/
 
+		InitResultBG();
+
 		break;
 	case MODE_TITLE:
 		// タイトルになかった物だけ初期化
@@ -35,6 +41,7 @@ void InitResult(int oldMode)
 
 		//=========================
 		// 初期化
+		InitResultBG();
 
 		//=========================
 		// リセット
@@ -48,6 +55,7 @@ void InitResult(int oldMode)
 
 		//=========================
 		// 初期化
+		InitResultBG();
 
 		//=========================
 		// リセット
@@ -69,11 +77,15 @@ void UninitResult(int mode)
 		// タイトルに使わないものをリリース
 		/*リザルト画面からタイトル画面へ切り替えるときに、タイトル画面で使わないものをリリース処理をする*/
 
+		UninitResultBG();
+
 		break;
 
 	case MODE_GAME:
 		// ゲームに使わないものをリリース
 		/*リザルト画面からゲーム画面へ切り替えるときに、ゲーム画面で使わないものをリリース処理をする*/
+
+		UninitResultBG();
 
 		break;
 	}
@@ -87,14 +99,13 @@ void UpdateResult(void)
 	/*ここではほかで書いたアップデートを呼ぶ*/
 	/*↓↓↓こんな感じ*/
 
-	//// モデルの最新処理
-	//UpdatePlayer();
+	UpdateResultBG();
 
-	//// エネミーの最新処理
-	//UpdateEnemy();
+	if (GetKeyboardTrigger(DIK_NUMPAD0))
+	{
+		SetFade(FADE_OUT, MODE_TITLE);
+	}
 
-	//// NPCの最新処理
-	//UpdateNpc();
 }
 
 //=============================================================================
@@ -105,13 +116,6 @@ void DrawResult(void)
 	/*ここではほかで書いたドローを呼ぶ*/
 	/*↓↓↓こんな感じ*/
 
-	//// モデルの描画
-	//DrawPlayer();
-
-	//// エネミーの描画
-	//DrawEnemy();
-
-	//// NPCの描画処理
-	//DrawNpc();
+	DrawResultBG();
 }
 

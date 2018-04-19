@@ -10,9 +10,9 @@
 //=============================================================================
 // インクルードファイル
 #include <windows.h>
+#include "d3dx9.h"
 #include <stdio.h>
 #include <time.h>
-#include "d3dx9.h"
 
 
 #define DIRECTINPUT_VERSION (0x0800)	// 警告対処用
@@ -68,7 +68,7 @@ typedef enum
 	MODE_GAME,				// ゲーム画面
 	MODE_RESULT,			// リザルト画面
 	MODE_MAX				// 画面のマックス
-}MODE;
+} MODE;
 
 // リリース処理をするときの便利なやつ
 #ifndef SAFE_RELEASE

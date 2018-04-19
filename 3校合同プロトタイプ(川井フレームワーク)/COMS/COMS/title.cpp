@@ -7,6 +7,11 @@
 #include "main.h"
 #include "title.h"
 
+#include "title BG.h"
+
+#include "input.h"
+#include "fade.h"
+
 //=============================================================================
 // マクロ定義
 
@@ -26,6 +31,7 @@ void InitTitle(int oldMode)
 		// 初めての初期化
 		/*何も初期化されていあないと想定して、タイトル画面内で使うものを全部初期化*/
 
+		InitTitleBG();
 
 		break;
 	case MODE_GAME:
@@ -36,6 +42,7 @@ void InitTitle(int oldMode)
 
 		//=========================
 		// 初期化
+		InitTitleBG();
 
 		//=========================
 		// リセット
@@ -49,6 +56,7 @@ void InitTitle(int oldMode)
 
 		//=========================
 		// 初期化
+		InitTitleBG();
 
 		//=========================
 		// リセット
@@ -69,10 +77,14 @@ void UninitTitle(int mode)
 		// ゲームに使わないものをリリース
 		/*タイトル画面からゲーム画面へ切り替えるときに、ゲーム画面で使わないものをリリース処理をする*/
 
+		UninitTitleBG();
+
 		break;
 	case MODE_RESULT:
 		// リザルトに使わないものをリリース
 		/*タイトル画面からリザルト画面へ切り替えるときに、リザルト画面で使わないものをリリース処理をする*/
+
+		UninitTitleBG();
 
 		break;
 	}
@@ -86,14 +98,13 @@ void UpdateTitle(void)
 	/*ここではほかで書いたアップデートを呼ぶ*/
 	/*↓↓↓こんな感じ*/
 
-	//// モデルの最新処理
-	//UpdatePlayer();
+	UpdateTitleBG();
 
-	//// エネミーの最新処理
-	//UpdateEnemy();
+	if (GetKeyboardTrigger(DIK_NUMPAD0))
+	{
+		SetFade(FADE_OUT, MODE_GAME);
+	}
 
-	//// NPCの最新処理
-	//UpdateNpc();
 }
 
 //=============================================================================
@@ -104,13 +115,6 @@ void DrawTitle(void)
 	/*ここではほかで書いたドローを呼ぶ*/
 	/*↓↓↓こんな感じ*/
 
-	//// モデルの描画
-	//DrawPlayer();
-
-	//// エネミーの描画
-	//DrawEnemy();
-
-	//// NPCの描画処理
-	//DrawNpc();
+	DrawTitleBG();
 }
 
