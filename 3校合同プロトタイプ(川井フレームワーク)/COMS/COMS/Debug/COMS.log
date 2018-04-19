@@ -1,0 +1,12 @@
+﻿  title.cpp
+  result.cpp
+  main.cpp
+  input.cpp
+  game.cpp
+  fade.cpp
+  DBD.cpp
+c:\users\fujita.kosuke\documents\visual studio 2015\projects\gm23\川井さんのフレームワーク\coms\coms\dbd.cpp(76): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 'sprintf' の宣言を確認してください
+  コードを生成中...
+  COMS.vcxproj -> C:\Users\fujita.kosuke\Documents\Visual Studio 2015\Projects\GM23\川井さんのフレームワーク\COMS\Debug\COMS.exe
+  COMS.vcxproj -> C:\Users\fujita.kosuke\Documents\Visual Studio 2015\Projects\GM23\川井さんのフレームワーク\COMS\Debug\COMS.pdb (Full PDB)
