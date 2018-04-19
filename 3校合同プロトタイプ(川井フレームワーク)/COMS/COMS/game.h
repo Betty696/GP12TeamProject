@@ -30,8 +30,32 @@ typedef enum
 typedef struct //ゲーム本編を制御するもの（経過週数、難易度）
 {
 	int week_cnt;				//経過週数
-	DIFFICULT difficult = DIFFICULT_NULL;	//選択された難易度
+	DIFFICULT difficult;	//選択された難易度
 }GAME;
+
+//ライヴァル構造体
+typedef struct
+{
+
+}RAIVAL;
+
+//プレイヤー構造体
+typedef struct
+{
+
+}PLAYER;
+
+//ターゲット構造体
+typedef struct
+{
+
+}TERGET;
+
+//キャラクター構造体(ほかの構造体を使うもの)
+typedef struct
+{
+
+}CHARACTOR;
 
 //=============================================================================
 // プロトタイプ宣言
