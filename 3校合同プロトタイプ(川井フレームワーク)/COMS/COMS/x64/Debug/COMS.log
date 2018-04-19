@@ -1,0 +1,15 @@
+﻿  title.cpp
+c:\users\fujita.kosuke\documents\visual studio 2015\projects\gm23\川井さんのフレームワーク\coms\coms\main.h(15): fatal error C1083: include ファイルを開けません。'd3dx9.h':No such file or directory
+  result.cpp
+c:\users\fujita.kosuke\documents\visual studio 2015\projects\gm23\川井さんのフレームワーク\coms\coms\main.h(15): fatal error C1083: include ファイルを開けません。'd3dx9.h':No such file or directory
+  main.cpp
+c:\users\fujita.kosuke\documents\visual studio 2015\projects\gm23\川井さんのフレームワーク\coms\coms\main.h(15): fatal error C1083: include ファイルを開けません。'd3dx9.h':No such file or directory
+  input.cpp
+c:\users\fujita.kosuke\documents\visual studio 2015\projects\gm23\川井さんのフレームワーク\coms\coms\main.h(15): fatal error C1083: include ファイルを開けません。'd3dx9.h':No such file or directory
+  game.cpp
+c:\users\fujita.kosuke\documents\visual studio 2015\projects\gm23\川井さんのフレームワーク\coms\coms\main.h(15): fatal error C1083: include ファイルを開けません。'd3dx9.h':No such file or directory
+  fade.cpp
+c:\users\fujita.kosuke\documents\visual studio 2015\projects\gm23\川井さんのフレームワーク\coms\coms\main.h(15): fatal error C1083: include ファイルを開けません。'd3dx9.h':No such file or directory
+  DBD.cpp
+c:\users\fujita.kosuke\documents\visual studio 2015\projects\gm23\川井さんのフレームワーク\coms\coms\main.h(15): fatal error C1083: include ファイルを開けません。'd3dx9.h':No such file or directory
+  コードを生成中...
